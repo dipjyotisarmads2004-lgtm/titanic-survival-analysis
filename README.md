@@ -138,7 +138,7 @@ Key preprocessing decisions:
 ### Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/dipjyotisarmads2004-lgtm/titanic-survival-analysis.git
 ```
 
 ### Navigate to Project Directory
