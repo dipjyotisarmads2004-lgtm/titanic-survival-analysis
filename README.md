@@ -4,7 +4,9 @@
 
 This project analyzes the Titanic dataset and develops machine learning models to predict passenger survival using demographic, socioeconomic, and travel-related features.
 
-The project follows a structured end-to-end machine learning workflow including:
+The primary objective of the project is not only to build predictive models, but also to develop a reproducible and analytically rigorous machine learning workflow.
+
+The project follows a structured end-to-end workflow:
 
 * data validation
 * preprocessing and cleaning
@@ -13,13 +15,11 @@ The project follows a structured end-to-end machine learning workflow including:
 * model development
 * evaluation and optimization
 
-The primary objective is not only predictive modeling, but also the development of a reproducible and analytically rigorous machine learning workflow.
-
 ---
 
 ## Problem Statement
 
-The objective of this project is to predict whether a passenger survived the Titanic disaster using features such as:
+The objective of this project is to predict whether a passenger survived the Titanic disaster using information such as:
 
 * passenger class
 * age
@@ -47,14 +47,14 @@ Kaggle Titanic Machine Learning Competition
 
 ### Dataset Link
 
-[Kaggle Titanic Dataset](https://www.kaggle.com/competitions/titanic/data)
+https://www.kaggle.com/competitions/titanic/data
 
 ### Files Used
 
 * `train.csv`
 * `test.csv`
 
-The dataset contains passenger demographic information, ticket details, travel class, fare information, and embarkation details.
+The dataset contains passenger demographic information, ticket details, socioeconomic characteristics, fare information, and embarkation details.
 
 ---
 
@@ -73,16 +73,29 @@ titanic-survival-analysis/
 │
 ├── notebooks/
 │   ├── 01_data_understanding.ipynb
-│   └── 02_data_wrangling_cleaning.ipynb
+│   ├── 02_data_wrangling_cleaning.ipynb
+│   └── 03_exploratory_data_analysis.ipynb
 │
-├── models/
 ├── outputs/
+│   └── figures/
+│
 ├── src/
 │
 ├── README.md
 ├── requirements.txt
 └── .gitignore
 ```
+
+---
+
+## Notebooks
+
+| Notebook                           | Description                                                         | Status    |
+| ---------------------------------- | ------------------------------------------------------------------- | --------- |
+| 01_data_understanding.ipynb        | Dataset inspection and structural analysis                          | Completed |
+| 02_data_wrangling_cleaning.ipynb   | Missing value analysis and preprocessing                            | Completed |
+| 03_exploratory_data_analysis.ipynb | Distribution analysis, survival patterns, and feature relationships | Completed |
+| 04_feature_engineering.ipynb       | Feature construction and transformation                             | Planned   |
 
 ---
 
@@ -109,15 +122,40 @@ Completed tasks:
 * distribution analysis
 * skewness assessment
 * outlier investigation
-* preprocessing and cleaning operations
+* preprocessing operations
 * cleaned dataset export
 
 Key preprocessing decisions:
 
 * median imputation for `Age`
 * mode imputation for `Embarked`
-* exclusion of `Cabin`
-* removal of low-utility identifier-based features
+* removal of `Cabin`
+* removal of `PassengerId`
+* removal of `Ticket`
+* retention of investigated outliers
+
+---
+
+### Exploratory Data Analysis
+
+Completed tasks:
+
+* target variable analysis
+* univariate analysis
+* bivariate analysis
+* feature relationship analysis
+* correlation analysis
+* multivariate analysis
+* survival pattern investigation
+* identification of feature engineering opportunities
+
+Key findings:
+
+* female passengers experienced significantly higher survival rates
+* first-class passengers exhibited better survival outcomes
+* fare and passenger class captured important socioeconomic information
+* age effects appeared nonlinear
+* family structure influenced survival patterns
 
 ---
 
@@ -163,17 +201,17 @@ jupyter notebook
 
 ## Current Progress
 
-Completed:
+### Completed
 
 * project setup and environment configuration
 * dataset organization
-* dataset validation and inspection
-* data wrangling and preprocessing workflow
+* data understanding
+* data wrangling and preprocessing
 * cleaned dataset generation
-
-Upcoming:
-
 * exploratory data analysis
+
+### Upcoming
+
 * feature engineering
 * model development
 * model evaluation
@@ -185,16 +223,15 @@ Upcoming:
 
 Planned future improvements include:
 
-* advanced feature engineering
-* reusable preprocessing pipelines
-* cross-validation workflows
-* hyperparameter tuning
+* feature engineering pipelines
 * model comparison and benchmarking
-* modular training pipelines
-* experiment tracking and reproducibility improvements
+* hyperparameter optimization
+* cross-validation workflows
+* reusable training pipelines
+* experiment reproducibility improvements
 
 ---
 
 ## Author
 
-Dipjyoti Sarma
+**Dipjyoti Sarma**
