@@ -2,79 +2,109 @@
 
 ## Overview
 
-This project analyzes the Titanic dataset and develops machine learning models to predict passenger survival using demographic, socioeconomic, and travel-related features.
+Titanic Survival Analysis is an end-to-end machine learning project that investigates the factors influencing passenger survival aboard the RMS Titanic and develops predictive models using demographic, socioeconomic, and travel-related information.
 
-The primary objective of the project is not only to build predictive models, but also to develop a reproducible and analytically rigorous machine learning workflow.
-
-The project follows a structured end-to-end workflow:
-
-* data validation
-* preprocessing and cleaning
-* exploratory data analysis
-* feature engineering
-* model development
-* evaluation and optimization
+The project follows a structured data science workflow covering data preparation, exploratory analysis, feature engineering, and predictive modeling.
 
 ---
 
 ## Problem Statement
 
-The objective of this project is to predict whether a passenger survived the Titanic disaster using information such as:
+The objective is to predict whether a passenger survived the Titanic disaster using passenger characteristics such as:
 
-* passenger class
-* age
-* sex
-* fare
-* family relationships
-* embarkation details
+* Passenger Class
+* Age
+* Sex
+* Fare
+* Family Relationships
+* Embarkation Port
 
-This is a supervised machine learning classification problem.
+**Target Variable**
 
-### Target Variable
-
-`Survived`
-
-* `0` → Did Not Survive
-* `1` → Survived
+| Value | Meaning         |
+| ----- | --------------- |
+| 0     | Did Not Survive |
+| 1     | Survived        |
 
 ---
 
 ## Dataset
 
-### Dataset Source
+**Source:** Kaggle Titanic Machine Learning Competition
 
-Kaggle Titanic Machine Learning Competition
+Dataset: https://www.kaggle.com/competitions/titanic/data
 
-### Dataset Link
-
-https://www.kaggle.com/competitions/titanic/data
-
-### Files Used
-
-* `train.csv`
-* `test.csv`
-
-The dataset contains passenger demographic information, ticket details, socioeconomic characteristics, fare information, and embarkation details.
+The dataset contains passenger-level demographic, socioeconomic, and travel information used for survival prediction.
 
 ---
 
-## Project Structure
+## Project Workflow
+
+### Data Understanding
+
+* Dataset inspection
+* Feature assessment
+* Data type validation
+* Structural analysis
+
+### Data Wrangling & Cleaning
+
+Key preprocessing operations:
+
+* Median imputation for `Age`
+* Mode imputation for `Embarked`
+* Removal of `Cabin`
+* Removal of `PassengerId`
+* Removal of `Ticket`
+
+### Exploratory Data Analysis
+
+Key findings:
+
+* Survival was strongly influenced by passenger sex.
+* Passenger class exhibited significant predictive power.
+* Fare captured important socioeconomic information.
+* Age effects appeared nonlinear.
+* Family structure influenced survival outcomes.
+
+### Feature Engineering
+
+Engineered features:
+
+* `FamilySize`
+* `IsAlone`
+* `Title`
+* `LogFare`
+* `AgeGroup`
+
+Additional processing:
+
+* Feature validation
+* Categorical encoding
+* Modeling dataset generation
+
+### Model Development
+
+* Planned
+
+---
+
+## Repository Structure
 
 ```text
 titanic-survival-analysis/
 │
 ├── data/
 │   ├── raw/
-│   │   ├── train.csv
-│   │   └── test.csv
-│   │
+│   ├── interim/
 │   └── processed/
-│       └── titanic_cleaned.csv
 │
 ├── notebooks/
 │   ├── 01_data_understanding.ipynb
 │   ├── 02_data_wrangling_cleaning.ipynb
-│   └── 03_exploratory_data_analysis.ipynb
+│   ├── 03_exploratory_data_analysis.ipynb
+│   ├── 04_feature_engineering.ipynb
+│   └── 05_model_development.ipynb
 │
 ├── outputs/
 │   └── figures/
@@ -88,82 +118,25 @@ titanic-survival-analysis/
 
 ---
 
-## Notebooks
+## Project Status
 
-| Notebook                           | Description                                                         | Status    |
-| ---------------------------------- | ------------------------------------------------------------------- | --------- |
-| 01_data_understanding.ipynb        | Dataset inspection and structural analysis                          | Completed |
-| 02_data_wrangling_cleaning.ipynb   | Missing value analysis and preprocessing                            | Completed |
-| 03_exploratory_data_analysis.ipynb | Distribution analysis, survival patterns, and feature relationships | Completed |
-| 04_feature_engineering.ipynb       | Feature construction and transformation                             | Planned   |
-
----
-
-## Project Workflow
-
-### Data Understanding
-
-Completed tasks:
-
-* dataset inspection
-* feature analysis
-* datatype validation
-* structural assessment
+| Stage                     | Status      |
+| ------------------------- | ----------- |
+| Data Understanding        | Completed   |
+| Data Wrangling & Cleaning | Completed   |
+| Exploratory Data Analysis | Completed   |
+| Feature Engineering       | Completed   |
+| Model Development         | In Progress |
+| Model Evaluation          | Pending     |
 
 ---
 
-### Data Wrangling & Cleaning
-
-Completed tasks:
-
-* missing value analysis
-* missing data visualization
-* duplicate inspection
-* distribution analysis
-* skewness assessment
-* outlier investigation
-* preprocessing operations
-* cleaned dataset export
-
-Key preprocessing decisions:
-
-* median imputation for `Age`
-* mode imputation for `Embarked`
-* removal of `Cabin`
-* removal of `PassengerId`
-* removal of `Ticket`
-* retention of investigated outliers
-
----
-
-### Exploratory Data Analysis
-
-Completed tasks:
-
-* target variable analysis
-* univariate analysis
-* bivariate analysis
-* feature relationship analysis
-* correlation analysis
-* multivariate analysis
-* survival pattern investigation
-* identification of feature engineering opportunities
-
-Key findings:
-
-* female passengers experienced significantly higher survival rates
-* first-class passengers exhibited better survival outcomes
-* fare and passenger class captured important socioeconomic information
-* age effects appeared nonlinear
-* family structure influenced survival patterns
-
----
-
-## Technologies Used
+## Technologies
 
 * Python
 * Pandas
 * NumPy
+* SciPy
 * Matplotlib
 * Seaborn
 * Scikit-learn
@@ -171,64 +144,17 @@ Key findings:
 
 ---
 
-## Setup Instructions
-
-### Clone Repository
+## Setup
 
 ```bash
-git clone https://github.com/dipjyotisarmads2004-lgtm/titanic-survival-analysis.git
-```
+git clone https://github.com/dipjyotisarma-dev/titanic-survival-analysis.git
 
-### Navigate to Project Directory
-
-```bash
 cd titanic-survival-analysis
-```
 
-### Install Dependencies
-
-```bash
 pip install -r requirements.txt
-```
 
-### Launch Jupyter Notebook
-
-```bash
 jupyter notebook
 ```
-
----
-
-## Current Progress
-
-### Completed
-
-* project setup and environment configuration
-* dataset organization
-* data understanding
-* data wrangling and preprocessing
-* cleaned dataset generation
-* exploratory data analysis
-
-### Upcoming
-
-* feature engineering
-* model development
-* model evaluation
-* model optimization
-
----
-
-## Future Improvements
-
-Planned future improvements include:
-
-* feature engineering pipelines
-* model comparison and benchmarking
-* hyperparameter optimization
-* cross-validation workflows
-* reusable training pipelines
-* experiment reproducibility improvements
 
 ---
 
