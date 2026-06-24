@@ -96,7 +96,6 @@ titanic-survival-analysis/
 │
 ├── data/
 │   ├── raw/
-│   ├── interim/
 │   └── processed/
 │
 ├── notebooks/
